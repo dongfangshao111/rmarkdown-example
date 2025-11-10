@@ -1,0 +1,70 @@
+---
+title: "前菜"
+format: html
+editor: visual
+---
+
+## ***R包的安装方法***
+
+#### 从BiocManager安装
+
+1.  从BiocManager安装R包，修改镜像，每次使用前都要修改
+
+```{r}
+options(BioC_mirror="https://mirrors.westlake.edu.cn/bioconductor")
+```
+
+2.  然后安装BiocManager这个R包
+
+```{r}
+if (!require("BiocManager", quietly = TRUE))
+  install.packages("BiocManager")
+BiocManager::install(update = TRUE, ask = FALSE)
+
+if (!require("BiocManager", quietly = TRUE))
+  install.packages("BiocManager")
+BiocManager::install(version="3.22", ask = FALSE)
+```
+
+3.  利用BiocManager安装其中的R包
+
+```{r}
+BiocManager::install("limma")  
+BiocManager::install("TCGAbiolinks")
+BiocManager::install("edgeR")
+
+强制安装
+BiocManager::install("limma", force = TRUE)
+
+library(limma)
+```
+
+#### 从rstudio安装
+
+1.  安装tidyverse这个大的R包
+
+```{r}
+install.packages("tidyverse")
+library(tidyverse)
+library(DESeq2)
+library(TCGAbiolinks)
+library(easyTCGA)
+```
+
+#### 从github安装
+
+1.先加载devtools这个r包\`,再安装
+
+```{r}
+library(devtools)
+install_github("ayueme/easyTCGA")
+```
+
+#### 下载到本地安装
+
+1.注意文件路径和/，\\
+
+```{r}
+install_local("C:\Users\dongfangshao666\Downloads\easyTCGA-main.zip")
+```
+
